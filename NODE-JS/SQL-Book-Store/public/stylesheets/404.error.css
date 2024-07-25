@@ -1,0 +1,28 @@
+.Error404Container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    height: calc(100dvh - 48px);
+}
+
+.Error404Container h1 {
+    font-size: 36px;
+    color: #333;
+    padding-top: 30px;
+}
+
+.Error404Container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.Error404Container a {
+    color: #008cba;
+    text-decoration: none;
+}
+
+.Error404Container a:hover {
+    text-decoration: underline;
+}

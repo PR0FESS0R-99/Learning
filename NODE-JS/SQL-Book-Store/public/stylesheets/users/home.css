@@ -1,0 +1,31 @@
+.search-box-container {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+.search-box-container .search-box {
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.search-box-container .search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.search-box-container .search-box .bx {
+    margin-left: 10PX;
+}

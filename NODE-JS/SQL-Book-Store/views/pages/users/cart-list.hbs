@@ -1,0 +1,85 @@
+<style>
+    @import url(/stylesheets/admins/tables.css);
+</style>
+
+<div id="pageContainer">
+    <div id="table-container">
+        <style>
+            .button-container {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 10px;
+            }
+
+            .button-container button {
+                padding: 6px 30px;
+                background: #36428b;
+                color: #fff;
+                text-transform: uppercase;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+            }
+        </style>
+        <div class="button-container">
+            <button>ACCEPT ORDER</button>
+        </div>
+        <script>
+            $('.button-container button').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/order',
+                    success: function (response) {
+                        
+                        if (response?.success) {
+                            Toast.fire({
+                                icon: "success",
+                                title: `Successfully Ordered Books `
+                            });
+                            $('tbody').empty();
+                        } else if (response?.validation) {
+                            Toast.fire({
+                                icon: "warning",
+                                title: response?.validation
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                })
+            })
+        </script>
+
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="index">Index</th>
+                    <th>Book Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each cartData}}
+                <tr>
+                    <td class="index">{{primaryIndex @index}}</td>
+                    <td>{{this.title}}</td>
+                    <td>
+                        <img style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid black;"
+                            src="http://localhost:3000/images/books/{{this.image}}">
+                    </td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.quantity}}</td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/javascripts/users/order-list-table.js"></script>

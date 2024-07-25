@@ -1,0 +1,134 @@
+<style>
+    @import url(/stylesheets/book.card.css);
+    @import url(/stylesheets/users/home.css);
+    @import url(/stylesheets/users/book.card.css);
+</style>
+
+<style>
+    .no-result {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .no-result p {
+        text-transform: uppercase;
+        color: red;
+        font-weight: 800;
+        font-size: 30px;
+    }
+</style>
+
+<section class="search-box-container">
+    <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" class="search-box" placeholder="Search for a book">
+    </div>
+</section>
+
+<section id="book-card-container">
+    {{#each books}}
+    <div class="book-card">
+        <div class="book-image">
+            <img src="http://localhost:3000/images/books/{{this.image}}" alt="book Image" class="book-image">
+        </div>
+        <div class="book-info">
+            <div class="book-name">
+                {{this.title}}
+            </div>
+            <div class="book-description">
+                {{this.description}}
+            </div>
+            <div class="book-price">
+                ${{this.price}}
+            </div>
+            <button class="buy-button" onclick="addToCard('{{this.id}}')">Add To Card <i
+                    class='bx bx-cart-add'></i></button>
+        </div>
+    </div>
+    {{/each}}
+</section>
+
+<script>
+    function addToCard(id) {
+        $.ajax({
+            type: "POST",
+            url: "/add-to-cart",
+            data: {
+                id: id
+            },
+            success: function (response) {
+                if (response?.success) {
+                    let result = response.result
+                    Toast.fire({
+                        icon: "success",
+                        title: `Successfully added to cart book ${result.title} `
+                    });
+                } else if (response?.login) {
+                    window.location.href = '/login';
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('.search-box-container .search-box input').on('input', function (event) {
+            $.ajax({
+                type: "POST",
+                url: "/search",
+                data: { text: event.target.value },
+                success: function (response) {
+                    if (response?.success) {
+                        let results = response.results;
+                        $('#book-card-container').html("");
+
+                        for (let i = 0; i < results.length; i++) {
+                            let html = `
+                            <div class="book-card">
+                                <div class="book-image">
+                                    <img src="http://localhost:3000/images/books/${results[i].image}" alt="book Image" class="book-image">
+                                </div>
+                                <div class="book-info">
+                                    <div class="book-name">
+                                        ${results[i].title}
+                                    </div>
+                                    <div class="book-description">
+                                        ${results[i].description}
+                                    </div>
+                                    <div class="book-price">
+                                        $${results[i].price}
+                                    </div>
+                                    <button class="buy-button" onclick="addToCard('{{this.id}}')">
+                                        Add To Card 
+                                        <i class='bx bx-cart-add'></i>
+                                    </button>
+                                </div>
+                            </div>
+                            `;
+
+                            $('#book-card-container').append(html)
+                        };
+
+                        if (results.length == 0) {
+                            let html = `
+                                <div class="no-result">
+                                    <p>No Results Found</p>
+                                </div>
+                            `;
+                            $('#book-card-container').append(html)
+                        };
+                    }
+                },
+
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+</script>

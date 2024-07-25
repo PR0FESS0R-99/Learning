@@ -1,0 +1,91 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.login-container .login-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+}
+
+.login-container .login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.login-container .form-group i {
+    color: #aaa;
+}
+
+.login-container .login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #36428b;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.login-container .login-button:hover {
+    background-color: #034040;
+}
+
+.login-container .create-account {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container .create-account a {
+    color: #008cba;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.login-container .create-account a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width:500px) {
+    .login-container .login-form {
+        width: 90%;
+    }
+
+    .login-container .login-button {
+        padding: 7px;
+    }
+}

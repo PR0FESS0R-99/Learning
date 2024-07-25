@@ -1,0 +1,94 @@
+<style>
+    @import url(/stylesheets/admins/dashboard.css);
+</style>
+
+<section id="status-card-container">
+    <div class="status-card">
+        <div class="status-icon">
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="status-info">
+            <h3>Users</h3>
+            <p>{{counts.users}}</p>
+        </div>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">
+            <i class='bx bxs-user-circle'></i>
+        </div>
+        <div class="status-info">
+            <h3>Admins</h3>
+            <p>{{counts.admins}}</p>
+        </div>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">
+            <i class='bx bx-cart-download'></i>
+        </div>
+        <div class="status-info">
+            <h3>Orders</h3>
+            <p>{{counts.orders}}</p>
+        </div>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">
+            <i class='bx bx-book' ></i>
+        </div>
+        <div class="status-info">
+            <h3>Books</h3>
+            <p>{{counts.books}}</p>
+        </div>
+    </div>
+</section>
+
+<h3 class="access-button-title">
+    <span>EASY ACCESS BUTTON</span>
+</h3>
+
+<section id="access-button-container">
+    <button class="access-btn" onclick="linkButton('/admin/admins-list')">
+        <i class='bx bxs-user-detail'></i> Admins List
+    </button>
+    <button class="access-btn" onclick="linkButton('/admin/customers-list')">
+        <i class='bx bxs-user-detail'></i> Customer List
+    </button>
+    <button class="access-btn" onclick="linkButton('/admin/books-list')">
+        <i class='bx bx-list-plus'></i> Product List
+    </button>
+</section>
+
+<div id="view-graph-table-container">
+    <section id="chart-container">
+        <canvas id="myChart"></canvas>
+    </section>
+
+    <section id="book-view-container">
+        <h3 class="book-table-title">Book List</h3>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Book Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each BookList}}
+                <tr>
+                    <td>{{primaryIndex @index}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.price}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script>
+    let chartLabels = '{{chartTable.labels}}';
+    chartLabels = chartLabels.split(',');
+    let chartData = [{{chartTable.datas}}];
+</script>
+
+<script src="/javascripts/admins/dashboard.js"></script>

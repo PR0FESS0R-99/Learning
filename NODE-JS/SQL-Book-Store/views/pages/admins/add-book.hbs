@@ -1,0 +1,35 @@
+<style>
+    @import url(/stylesheets/admins/add-book.css);
+</style>
+
+<div id="add-book-container">
+    <h2>Add a New Book</h2>
+    <form id="bookForm">
+        <div class="form-group">
+            <label for="bookTitle">Book Title</label>
+            <input type="text" id="bookTitle" name="bookTitle">
+        </div>
+        <div class="form-group">
+            <label for="authorName">Author Name</label>
+            <input type="text" id="authorName" name="authorName">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" style="min-height: 70px;"
+                rows="7"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+            <label class="custom-upload-button" for="imageUpload">Upload Image</label>
+
+        </div>
+        <button type="submit">Add Book</button>
+    </form>
+</div>
+
+<script src="/javascripts/admins/add-book.js"></script>

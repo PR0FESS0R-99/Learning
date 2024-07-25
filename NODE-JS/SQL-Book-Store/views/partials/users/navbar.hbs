@@ -1,0 +1,28 @@
+<style>
+    @import url(/stylesheets/users/navbar.css);
+</style>
+
+<nav class="navbar">
+    <div class="title">
+        <a href="/">BOOK STORE</a>
+    </div>
+
+    {{#if isLoggedIn}}
+    <i class='bx bx-cart-add' onclick="linkButton('/cart-list')" id="card"></i>
+    <i class='bx bx-log-out' onclick="logout()" id="logout"></i>
+    {{else}}
+    <i class='bx bx-log-in'  id="card" onclick="linkButton('/login')"></i>
+    {{/if}}
+</nav>
+
+<script>
+    function logout() {
+        $.ajax({
+            url:'/log-out',
+            type:'GET',
+            success: function(data) {
+                window.location.reload();
+            }
+        })
+    }
+</script>

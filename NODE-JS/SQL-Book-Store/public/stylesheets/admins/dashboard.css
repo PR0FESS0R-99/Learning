@@ -1,0 +1,227 @@
+#status-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#status-card-container .status-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+#status-card-container .status-icon {
+    font-size: 3em;
+    color: #36428b;
+    margin-right: 20px;
+}
+
+#status-card-container .status-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    user-select: none;
+}
+
+#status-card-container .status-info p {
+    margin: 5px 0 0;
+    font-size: 1.5em;
+    color: #666;
+    user-select: none;
+}
+
+@media (max-width: 500px) {
+    #status-card-container .status-card {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+        width: 90%;
+    }
+
+    #status-card-container .status-icon {
+        margin: 0 0 10px 0;
+    }
+}
+
+/* =========================== */
+
+.access-button-title {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.access-button-title span {
+    border-bottom: 3px solid;
+    font-size: 30px;
+}
+
+#access-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#access-button-container .access-btn {
+    background: #36428b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+
+    max-width: 300px;
+    width: 100%;
+}
+
+#access-button-container .access-btn i {
+    font-size: 1.2em;
+}
+
+#access-button-container .access-btn:hover {
+    background-color: #005f5f;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 500px) {
+    #access-button-container .access-btn {
+        flex-direction: column;
+        justify-content: center;
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .access-button-title span {
+        font-size: 1em;
+    }
+}
+
+/* =========================== */
+
+#view-graph-table-container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* chart */
+#view-graph-table-container #chart-container {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#view-graph-table-container #chart-container canvas {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+
+/* table */
+#view-graph-table-container #book-view-container {
+    width: 400px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#view-graph-table-container #book-view-container .book-table-title {
+    font-size: 1.5em;
+    font-weight: 600;
+
+    background-color: #3333;
+    padding: 10px;
+    text-align: center;
+}
+
+#view-graph-table-container #book-view-container table {
+    border-top: 1px solid black !important;
+}
+
+#view-graph-table-container #book-view-container .dataTables_info {
+    display: none;
+}
+
+#view-graph-table-container #book-view-container .dataTables_wrapper .dataTables_paginate {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    #view-graph-table-container {
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+    }
+
+    #view-graph-table-container #chart-container {
+        max-width: 700px;
+    }
+
+    #view-graph-table-container #chart-container canvas {
+        height: auto !important;
+    }
+
+    #view-graph-table-container #book-view-container {
+        max-width: 700px;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    #view-graph-table-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #view-graph-table-container #chart-container {
+        width: 100%;
+    }
+
+    #view-graph-table-container #chart-container canvas {
+        height: 400px !important;
+    }
+
+    #view-graph-table-container #book-view-container {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 420px) {
+    #view-graph-table-container #chart-container canvas {
+        height: 200px !important;
+    }
+}
+
+@media (max-width:380px) {
+    #view-graph-table-container #chart-container canvas {
+        height: auto !important;
+    }
+}

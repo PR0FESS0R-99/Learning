@@ -1,0 +1,44 @@
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .card {
+        width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-number {
+        font-size: 36px;
+        font-weight: bold;
+        color: #3498db;
+    }
+</style>
+
+
+<div class="card">
+    <div class="card-content">
+        <div class="card-title">Page Views</div>
+        <div class="card-number">{{views}}</div>
+    </div>
+</div>

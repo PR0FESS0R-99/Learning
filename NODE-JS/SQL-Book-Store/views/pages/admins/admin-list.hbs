@@ -1,0 +1,26 @@
+<style>
+    @import url(/stylesheets/admins/tables.css);
+</style>
+
+<div id="pageContainer">
+    <div id="table-container">
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="index">#</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each AdminLists}}
+                <tr>
+                    <td class="index">{{primaryIndex @index}}</td>
+                    <td>{{this.email}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/javascripts/admins/book-table.js"></script>
